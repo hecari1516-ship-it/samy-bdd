@@ -3,7 +3,6 @@ require 'config.php';
 
 $mensaje = '';
 
-// Si ya existe algún usuario, esta página solo la puede usar un Administrador con sesión iniciada
 $existe = $conn->query("SELECT COUNT(*) AS total FROM usuarios")->fetch_assoc();
 if ($existe['total'] > 0) {
     requiereAdmin();
