@@ -1,0 +1,396 @@
+/* ============================================
+   SaMy — Sistema de diseño estilo iOS / Apple
+   ============================================ */
+
+:root {
+  --ios-blue: #007AFF;
+  --ios-blue-dark: #0062CC;
+  --ios-green: #34C759;
+  --ios-red: #FF3B30;
+  --ios-orange: #FF9500;
+  --ios-gray-bg: #F2F2F7;
+  --ios-card: rgba(255,255,255,0.9);
+  --ios-text: #1C1C1E;
+  --ios-text-soft: #6E6E73;
+  --ios-line: rgba(60,60,67,0.12);
+  --ios-radius: 18px;
+  --ios-radius-sm: 12px;
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--ios-gray-bg);
+  color: var(--ios-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .navbar-brand { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; letter-spacing: -0.01em; }
+
+/* ---------- Navbar translúcida estilo iOS ---------- */
+.navbar {
+  background: rgba(255,255,255,0.72) !important;
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--ios-line);
+  padding: 12px 0;
+}
+.navbar-brand {
+  color: var(--ios-text) !important;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.brand-icon { color: var(--ios-blue); }
+.nav-link {
+  color: var(--ios-text-soft) !important;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  padding: 6px 12px !important;
+  transition: background .15s, color .15s;
+}
+.nav-link:hover { color: var(--ios-blue) !important; background: rgba(0,122,255,0.08); }
+.nav-link.activo { color: var(--ios-blue) !important; font-weight: 600; }
+.badge-rol {
+  background: var(--ios-blue);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+.nav-salir { color: var(--ios-red) !important; }
+
+/* Navbar en dos filas: logo centrado arriba, enlaces centrados abajo */
+.navbar-samy { padding: 14px 0 10px; }
+.navbar-samy > .container-fluid {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+}
+.nav-fila-logo {
+  position: relative;
+  width: 100%;
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  min-height: 40px;
+}
+.navbar-brand-centrado {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ios-text) !important;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.nav-esquina {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+.navbar-toggler {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+}
+.navbar-samy .navbar-collapse {
+  flex: 0 0 100%;
+  width: 100%;
+  display: flex !important;
+  justify-content: center !important;
+}
+.nav-links-centradas { flex-direction: row; gap: 4px; }
+
+@media (min-width: 992px) {
+  .nav-esquina { display: flex; }
+  .navbar-toggler { display: none; }
+}
+
+/* ---------- Layout ---------- */
+.page-wrap { max-width: 1080px; margin: 0 auto; padding: 32px 20px 90px; }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-size: 0.7rem;
+  color: var(--ios-blue);
+  font-weight: 700;
+}
+h1.page-title { font-size: 1.7rem; font-weight: 700; margin: 4px 0 22px; color: var(--ios-text); }
+
+/* ---------- Tarjetas ---------- */
+.tarjeta {
+  background: #fff;
+  border: 1px solid var(--ios-line);
+  border-radius: var(--ios-radius);
+  padding: 24px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+a .tarjeta:hover, .tarjeta.clicable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* ---------- Botones estilo iOS ---------- */
+.btn-samy, .btn-samy-outline {
+  border: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 980px; /* pill */
+  font-size: 0.92rem;
+  transition: transform .1s ease, opacity .15s ease;
+}
+.btn-samy { background: var(--ios-blue); color: #fff; }
+.btn-samy:hover { background: var(--ios-blue-dark); color: #fff; }
+.btn-samy:active { transform: scale(0.97); }
+.btn-samy-outline { background: rgba(0,122,255,0.1); color: var(--ios-blue); }
+.btn-samy-outline:hover { background: rgba(0,122,255,0.16); color: var(--ios-blue); }
+.btn-samy-outline:active { transform: scale(0.97); }
+
+/* ---------- Formularios ---------- */
+.form-control, .form-select {
+  border-radius: var(--ios-radius-sm);
+  border: 1px solid var(--ios-line);
+  padding: 10px 14px;
+  background: var(--ios-gray-bg);
+  font-size: 0.94rem;
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--ios-blue);
+  box-shadow: 0 0 0 4px rgba(0,122,255,0.15);
+  background: #fff;
+}
+.form-label { font-size: 0.82rem; font-weight: 600; color: var(--ios-text-soft); }
+
+/* ---------- Tabla (lista estilo iOS Settings) ---------- */
+.tabla-envoltorio {
+  background: #fff;
+  border: 1px solid var(--ios-line);
+  border-radius: var(--ios-radius);
+  overflow: hidden;
+}
+table.tabla-samy { margin-bottom: 0; }
+table.tabla-samy thead th {
+  background: transparent;
+  color: var(--ios-text-soft);
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  letter-spacing: 0.6px;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--ios-line);
+}
+table.tabla-samy tbody td {
+  padding: 13px 16px;
+  border-top: 1px solid var(--ios-line);
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+table.tabla-samy tbody tr { transition: background .12s; }
+table.tabla-samy tbody tr:hover { background: rgba(0,0,0,0.015); }
+
+.pill { padding: 3px 11px; border-radius: 980px; font-size: 0.72rem; font-weight: 600; }
+.pill-verde { background: rgba(52,199,89,0.15); color: #1F8B3B; }
+.pill-rojo  { background: rgba(255,59,48,0.12); color: #D8342A; }
+.pill-azul  { background: rgba(0,122,255,0.12); color: var(--ios-blue); }
+
+.mini-accion { font-size: 0.78rem; padding: 6px 13px; border-radius: 980px; text-decoration: none; font-weight: 600; }
+.mini-editar { background: rgba(0,122,255,0.1); color: var(--ios-blue); }
+.mini-editar:hover { background: rgba(0,122,255,0.18); color: var(--ios-blue); }
+.mini-eliminar { background: rgba(255,59,48,0.1); color: var(--ios-red); border: none; }
+.mini-eliminar:hover { background: rgba(255,59,48,0.18); }
+
+/* ---------- Login ---------- */
+.login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #EAF2FF 0%, #F2F2F7 60%);
+}
+.login-tarjeta {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 44px 36px;
+  width: 380px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+/* ---------- Receta imprimible ---------- */
+@media print {
+  .no-imprimir { display: none !important; }
+  .receta-hoja { box-shadow: none !important; border: none !important; }
+}
+.receta-hoja {
+  background: #fff;
+  border: 1px solid var(--ios-line);
+  border-radius: var(--ios-radius);
+  padding: 32px;
+  max-width: 650px;
+  margin: 0 auto;
+}
+.receta-hoja h2 { color: var(--ios-text); }
+
+/* ---------- Tablero Kanban (arrastrar y soltar) ---------- */
+.tablero { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.tablero-columna {
+  background: rgba(0,0,0,0.02);
+  border: 1px dashed var(--ios-line);
+  border-radius: var(--ios-radius);
+  padding: 14px;
+  min-height: 200px;
+  transition: background .15s, border-color .15s;
+}
+.tablero-columna.sobre-arrastre { background: rgba(0,122,255,0.06); border-color: var(--ios-blue); }
+.tablero-columna h6 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--ios-text-soft); font-weight: 700; margin-bottom: 10px; }
+.tarjeta-cita {
+  background: #fff;
+  border: 1px solid var(--ios-line);
+  border-radius: var(--ios-radius-sm);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  cursor: grab;
+  font-size: 0.85rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.tarjeta-cita:active { cursor: grabbing; }
+.tarjeta-cita.arrastrando { opacity: 0.4; }
+.tarjeta-cita:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,0.08); }
+.tarjeta-cita .paciente { font-weight: 600; margin-bottom: 2px; }
+.tarjeta-cita .meta { color: var(--ios-text-soft); font-size: 0.76rem; }
+
+@media (max-width: 768px) {
+  .tablero { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   Animaciones estilo iOS
+   ============================================ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Contenido principal aparece suavemente al cargar */
+.page-wrap { animation: fadeIn .3s ease both; }
+.page-title, .eyebrow { animation: fadeInUp .35s ease both; }
+
+/* Tarjetas del dashboard y formularios, con pequeño escalonado */
+.tarjeta { animation: fadeInUp .4s ease both; }
+.row.g-3 > div:nth-child(1) .tarjeta { animation-delay: .02s; }
+.row.g-3 > div:nth-child(2) .tarjeta { animation-delay: .06s; }
+.row.g-3 > div:nth-child(3) .tarjeta { animation-delay: .10s; }
+.row.g-3 > div:nth-child(4) .tarjeta { animation-delay: .14s; }
+.row.g-3 > div:nth-child(5) .tarjeta { animation-delay: .18s; }
+.row.g-3 > div:nth-child(6) .tarjeta { animation-delay: .22s; }
+.row.g-3 > div:nth-child(7) .tarjeta { animation-delay: .26s; }
+.row.g-3 > div:nth-child(8) .tarjeta { animation-delay: .30s; }
+
+/* Filas de tabla */
+table.tabla-samy tbody tr {
+  animation: fadeInUp .3s ease both;
+}
+table.tabla-samy tbody tr:nth-child(1) { animation-delay: .02s; }
+table.tabla-samy tbody tr:nth-child(2) { animation-delay: .05s; }
+table.tabla-samy tbody tr:nth-child(3) { animation-delay: .08s; }
+table.tabla-samy tbody tr:nth-child(4) { animation-delay: .11s; }
+table.tabla-samy tbody tr:nth-child(5) { animation-delay: .14s; }
+table.tabla-samy tbody tr:nth-child(n+6) { animation-delay: .16s; }
+
+/* Alertas (éxito, error, aviso) entran deslizando */
+.alert { animation: slideDown .3s ease both; }
+
+/* Login: la tarjeta aparece con un ligero "pop" */
+.login-tarjeta { animation: popIn .35s cubic-bezier(.2,.9,.3,1.2) both; }
+
+/* Tarjetas del tablero Kanban */
+.tarjeta-cita { animation: popIn .25s ease both; }
+
+/* Navbar aparece con fade rápido */
+.navbar { animation: fadeIn .25s ease both; }
+
+/* Botones: pequeño "resorte" al soltar el clic ya cubierto por :active con transform */
+.btn-samy, .btn-samy-outline, .mini-accion {
+  transition: transform .12s cubic-bezier(.34,1.56,.64,1), background .15s ease, opacity .15s ease;
+}
+
+/* Reducir animaciones si el usuario lo prefiere (accesibilidad) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001s !important; animation-delay: 0s !important; }
+}
+
+/* ============================================
+   Bienvenida personalizada al iniciar sesión
+   ============================================ */
+.bienvenida-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(242,242,247,0.7);
+  backdrop-filter: saturate(180%) blur(24px);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  animation: fadeIn .3s ease both;
+  cursor: pointer;
+}
+.bienvenida-overlay.bienvenida-salir {
+  animation: fadeOutOverlay .35s ease both;
+}
+@keyframes fadeOutOverlay {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+.bienvenida-tarjeta {
+  text-align: center;
+  animation: popIn .6s cubic-bezier(.2,.9,.3,1.2) both;
+  padding: 0 24px;
+}
+.bienvenida-saludo {
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  color: var(--ios-text-soft);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.bienvenida-nombre {
+  font-size: clamp(2.6rem, 8vw, 4.5rem);
+  font-weight: 700;
+  color: var(--ios-text);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-top: 4px;
+}
+.bienvenida-sub {
+  display: inline-block;
+  margin-top: 22px;
+  color: var(--ios-blue);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
